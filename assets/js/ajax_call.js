@@ -2,13 +2,13 @@ jQuery(document).ready(function($) {
 
         //jQuery(".ajax-click").click(function() {
             jQuery("#loading-animation").show();
-            var ajaxURL = MyAjax.ajaxurl;
+            var ajaxURL = ServicesAjax.servicesajaxurl;
             $.ajax({
             type: 'POST',
             url: ajaxURL,
-            data: {"action": "load-content"},
+            data: {"action": "load-services"},
             success: function(response) {
-                jQuery("#cars-response").html(response);
+                jQuery("#services-response").html(response);
                 jQuery("#loading-animation").hide();
             return false;
         }

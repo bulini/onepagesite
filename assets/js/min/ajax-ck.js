@@ -1,0 +1,1 @@
+jQuery(document).ready(function(a){jQuery("#loading-animation").show();var n=MyAjax.ajaxurl;a.ajax({type:"POST",url:n,data:{action:"load-content"},success:function(a){return jQuery("#cars-response").html(a),jQuery("#loading-animation").hide(),!1}})});

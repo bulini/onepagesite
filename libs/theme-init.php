@@ -78,21 +78,21 @@ function setup_booking_post_type()
 	/*
 	+++ team ++++++
 	*/
-	register_post_type('team', array(	'label' => 'Team','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'post','hierarchical' => false,'rewrite' => array('slug' => 'slides'),'query_var' => true,'exclude_from_search' => false,'supports' => array('title','editor','thumbnail','author','page-attributes',),'labels' => array (
-	  'name' => 'Team',
-	  'singular_name' => 'Team',
-	  'menu_name' => 'Team',
-	  'add_new' => 'Add Team member',
-	  'add_new_item' => 'Add New Team Member',
+	register_post_type('services', array(	'label' => 'Services','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'post','hierarchical' => false,'rewrite' => array('slug' => 'services'),'query_var' => true,'exclude_from_search' => false,'supports' => array('title','editor','thumbnail','author','page-attributes',),'labels' => array (
+	  'name' => 'Service',
+	  'singular_name' => 'Service',
+	  'menu_name' => 'Service',
+	  'add_new' => 'Add Service',
+	  'add_new_item' => 'Add new Service',
 	  'edit' => 'Edit',
-	  'edit_item' => 'Edit Member',
-	  'new_item' => 'New Member',
-	  'view' => 'View Member',
-	  'view_item' => 'View Member',
-	  'search_items' => 'Search Member',
-	  'not_found' => 'No Member Found',
-	  'not_found_in_trash' => 'No Member Found in Trash',
-	  'parent' => 'Parent Slide',
+	  'edit_item' => 'Edit Service',
+	  'new_item' => 'New Service',
+	  'view' => 'View Service',
+	  'view_item' => 'View Service',
+	  'search_items' => 'Search Service',
+	  'not_found' => 'No Service Found',
+	  'not_found_in_trash' => 'No Service Found in Trash',
+	  'parent' => 'Parent Service',
 	),) );
 	
 
@@ -319,6 +319,10 @@ if ( !function_exists('fb_AddThumbColumn') && function_exists('add_theme_support
 
 		wp_enqueue_script( 'blog-ajax-request', get_template_directory_uri() . '/assets/js/ajax_blog.js', array( 'jquery' ) );
 		wp_localize_script( 'blog-ajax-request', 'BlogAjax', array( 'blogajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+
+		wp_enqueue_script( 'services-ajax-request', get_template_directory_uri() . '/assets/js/ajax_call.js', array( 'jquery' ) );
+		wp_localize_script( 'services-ajax-request', 'ServicesAjax', array( 'servicesajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+
 
 
 		/*

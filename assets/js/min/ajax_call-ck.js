@@ -1,0 +1,1 @@
+jQuery(document).ready(function(e){jQuery("#loading-animation").show();var a=ServicesAjax.servicesajaxurl;e.ajax({type:"POST",url:a,data:{action:"load-services"},success:function(e){return jQuery("#services-response").html(e),jQuery("#loading-animation").hide(),!1}})});

@@ -10,7 +10,7 @@
                         <h1 class="brand-heading"><?php echo $options['jumbotron_h1'];?></h1>
                         <p class="intro-text"><?php echo $options['jumbotron_text'];?></p>
                         <div class="page-scroll">
-                            <a href="#about" class="btn btn-circle">
+                            <a href="#know-how" class="btn btn-circle">
                                 <i class="fa fa-angle-double-down animated"></i>
                             </a>
                         </div>

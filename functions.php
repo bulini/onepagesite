@@ -8,6 +8,7 @@ include('libs/theme-customization.php');
 include('libs/theme-init.php');
 
 //metabox
+include('libs/metaboxes/page.php');
 include('libs/metaboxes/vehicle.php');
 
 
@@ -135,6 +136,46 @@ add_action ( 'wp_ajax_load-vehicles', 'vehicle_ajax_content' );
         echo $response;
         die(1);
     }
+
+
+add_action ( 'wp_ajax_nopriv_load-services', 'services_ajax_content' );
+add_action ( 'wp_ajax_load-services', 'services_ajax_content' );
+
+    function services_ajax_content () {
+
+        $posts = get_posts('post_type=services');
+        $i=0;
+        $response='';
+        foreach($posts as $post) {
+           $i++;
+           $content = apply_filters( 'the_content', $post->post_content );
+	       $response.='<div class="col-sm-4 portfolio-item">
+                    	<a href="#portfolioModal'.$i.'" class="portfolio-link" data-toggle="modal"> 
+                        <div class="caption">
+                            <div class="caption-content">
+                                <h3><i class="fa fa-search-plus fa-3x"></i> '.apply_filters('the_title',$post->post_title).'</h3>
+                            </div>
+                        </div>';						
+		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
+		   $url = $thumb['0'];
+		   
+		   
+		   
+		   $thumb_url = wp_get_attachment_url('full', true);
+		   
+		   
+		   $response.='<img src="'.$url.'" class="img-responsive" alt="" />
+                    </a>
+                </div>';
+
+        }
+		
+        echo $response;
+        die(1);
+    }
+
+
+
 
 
 
@@ -731,6 +772,17 @@ class description_walker extends Walker_Nav_Menu{
      }
 }
 
+function the_slogan() {
+	global $post;
+	$slogan = get_post_meta($post->ID,'page_slogan',true);
+	echo $slogan;
+}
+
+function the_subcontent() {
+	global $post;
+	$subcontent = get_post_meta($post->ID,'page_subcontent',true);
+	echo apply_filters('the_content', $subcontent);
+}
 
 
 ?>

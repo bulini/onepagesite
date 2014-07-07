@@ -3,7 +3,7 @@
 Template Name: Contact
 */
 ?>
-    <section id="contact" class="">
+    <section id="contact" style="background:<?php echo get_post_meta($post->ID,'background_color',true); ?>">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
