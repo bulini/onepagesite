@@ -47,7 +47,7 @@ add_action ( 'wp_ajax_load-content', 'my_load_ajax_content' );
                                 <i class="fa fa-search-plus fa-3x"></i> '.apply_filters('the_title',$post->post_title).'
                             </div>
                         </div>';						
-		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
+		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'homepage-thumb');
 		   $url = $thumb['0'];
 		   
 		   
@@ -82,7 +82,7 @@ add_action ( 'wp_ajax_load-blog', 'blog_ajax_content' );
                                 <h3><i class="fa fa-search-plus fa-3x"></i> '.apply_filters('the_title',$post->post_title).'</h3>
                             </div>
                         </div>';						
-		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
+		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'homepage-thumb');
 		   $url = $thumb['0'];
 		   
 		   
@@ -119,7 +119,7 @@ add_action ( 'wp_ajax_load-vehicles', 'vehicle_ajax_content' );
                                 <h3><i class="fa fa-search-plus fa-3x"></i> '.apply_filters('the_title',$post->post_title).'</h3>
                             </div>
                         </div>';						
-		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
+		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'homepage-thumb');
 		   $url = $thumb['0'];
 		   
 		   
@@ -157,7 +157,7 @@ add_action ( 'wp_ajax_load-services', 'services_ajax_content' );
                                 <h3><i class="fa fa-search-plus fa-3x"></i> '.apply_filters('the_title',$post->post_title).'</h3>
                             </div>
                         </div>';						
-		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
+		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'homepage-thumb');
 		   $url = $thumb['0'];
 		   
 		   
