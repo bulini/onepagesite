@@ -144,6 +144,7 @@ add_action ( 'wp_ajax_load-services', 'services_ajax_content' );
     function services_ajax_content () {
 
         $posts = get_posts('post_type=services');
+        
         $i=0;
         $response='';
         foreach($posts as $post) {
