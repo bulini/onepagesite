@@ -53,6 +53,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/assets\/js\/ajax_call.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/ajax_call.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/ajax_call-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/assets\/js\/bootstrap.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -306,12 +317,23 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/assets\/js\/min\/freelancer-ck.js": {
+	"\/assets\/js\/min\/ajax-ck.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/js\/min\/freelancer-ck.js",
-		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/freelancer-ck-ck.js",
+		"inputAbbreviatedPath": "\/assets\/js\/min\/ajax-ck.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/ajax-ck-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/assets\/js\/min\/ajax_call-ck.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/min\/ajax_call-ck.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/ajax_call-ck-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -2000,6 +2022,18 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/README.md": {
+		"enableFootnoteSupport": 0,
+		"enableSmartyPants": 1,
+		"expandTabs": 1,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/README.md",
+		"outputAbbreviatedPath": "\/README.html",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/section-page.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -2021,7 +2055,7 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "giuseppe surace",
+"lastSavedByUser": "surace_g",
 "manualImportLinks": {
 	},
 "projectAttributes": {
