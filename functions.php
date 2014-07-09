@@ -41,7 +41,7 @@ add_action ( 'wp_ajax_load-content', 'my_load_ajax_content' );
            $i++;
            $content = apply_filters( 'the_content', $post->post_content );
 	       $response.='<div class="col-sm-4 portfolio-item">
-                    	<a href="'.get_permalink($post->ID).'" data-toggle="modal" class="portfolio-link" data-target="#item"> 
+                    	<a href="#item" data-toggle="modal" class="portfolio-link open-modal" data-target="#item" data-post-id="'.$post->ID.'"> 
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i> '.apply_filters('the_title',$post->post_title).'
@@ -170,6 +170,31 @@ add_action ( 'wp_ajax_load-services', 'services_ajax_content' );
                 </div>';
 
         }
+		
+        echo $response;
+        die(1);
+    }
+
+
+add_action ( 'wp_ajax_nopriv_load-single', 'single_ajax_content' );
+add_action ( 'wp_ajax_load-single', 'single_ajax_content' );
+
+function single_ajax_content () {
+		   $post_id=$_POST['post_id'];
+		   $response='';
+           $post = get_post($post_id);
+           $content = apply_filters( 'the_content', $post->post_content );
+	       $response.='<h2> '.apply_filters('the_title',$post->post_title).'</h2>';						
+		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'homepage-thumb');
+		   $url = $thumb['0'];
+		   
+		   
+		   
+		   $thumb_url = wp_get_attachment_url('full', true);
+		   
+		   
+		   $response.='<img src="'.$url.'" class="img-responsive" alt="" />';
+	       $response.=apply_filters('the_content',$post->post_content);						
 		
         echo $response;
         die(1);

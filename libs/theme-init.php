@@ -324,7 +324,8 @@ if ( !function_exists('fb_AddThumbColumn') && function_exists('add_theme_support
 		wp_localize_script( 'services-ajax-request', 'ServicesAjax', array( 'servicesajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 
-
+		wp_enqueue_script( 'single-ajax-request', get_template_directory_uri() . '/assets/js/ajax.js', array( 'jquery' ) );
+		wp_localize_script( 'single-ajax-request', 'SingleAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		/*
 		wp_enqueue_script( 'vehicle-ajax-request', get_template_directory_uri() . '/assets/js/ajax_vehicle.js', array( 'jquery' ) );
 		wp_localize_script( 'vehicle-ajax-request', 'BlogAjax', array( 'blogajaxurl' => admin_url( 'admin-ajax.php' ) ) );
