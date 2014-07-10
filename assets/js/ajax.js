@@ -12,29 +12,38 @@ jQuery(document).ready(function($) {
         jQuery("#loading-animation").hide();
     return false;
         }
-    });
+    }); 
     
+jQuery( ".portfolio-item a" ).click(function() {
+	alert('cristo');
+	jQuery( this ).fadeOut();
+});    
+
+
+jQuery("body").on('click','.portfolio-item',function(){
+    alert(jQuery(this));
+});
+
+
     
-    jQuery('.open-modal').on('click', function () {
-    	var id 
-	});
-    
-    
-    
-     
-	jQuery('#item').on('show.bs.modal', function (e) {
-	    alert(e.relatedTarget);    
-	    var post_id = id;
-	    var ajaxURL = SingleAjax.ajaxurl
-	    $.ajax({
-	    type: 'POST',
-	    url: ajaxURL,
-	    data: {"action": "load-single","post_id": post_id},
-	    success: function(response) {
-	        jQuery("#modal-content").html(response);
-	 
-	        }
-	    }); 
+var $myModal = jQuery('#item');
+
+$myModal.on('shown.bs.modal', function (e) {
+	//var modal = jQuery(e.delegateTarget).data('modal').options;
+
+ 	
+ 	//alert(modal);
+    var post_id = 2;
+    var ajaxURL = SingleAjax.ajaxurl
+    $.ajax({
+    type: 'POST',
+    url: ajaxURL,
+    data: {"action": "load-single","post_id": post_id},
+    success: function(response) {
+        jQuery("#modal-content").html(response);
+    return false; 
+        }
+    }); 
 });
 
 }); 
