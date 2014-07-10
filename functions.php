@@ -40,8 +40,8 @@ add_action ( 'wp_ajax_load-content', 'my_load_ajax_content' );
         foreach($posts as $post) {
            $i++;
            $content = apply_filters( 'the_content', $post->post_content );
-	       $response.='<div class="col-sm-4 portfolio-item">
-	       <a href="#item" data-toggle="modal" class="portfolio-link" data-target="#item" data-post-id="'.$post->ID.'"> 
+	       $response.='<div class="col-sm-4 portfolio-item" data-target="#item" data-post-id="'.$post->ID.'">
+	       <a href="#item" class="portfolio-link"> 
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i> '.apply_filters('the_title',$post->post_title).'
@@ -101,42 +101,6 @@ add_action ( 'wp_ajax_load-blog', 'blog_ajax_content' );
     }
 
 
-add_action ( 'wp_ajax_nopriv_load-vehicles', 'vehicle_ajax_content' );
-add_action ( 'wp_ajax_load-vehicles', 'vehicle_ajax_content' );
-
-    function vehicle_ajax_content () {
-
-        $posts = get_posts('post_type=vehicles');
-        $i=0;
-        $response='';
-        foreach($posts as $post) {
-           $i++;
-           $content = apply_filters( 'the_content', $post->post_content );
-	       $response.='<div class="col-sm-4 blog-item">
-                    	<a href="#portfolioModal'.$i.'" class="blog-link" data-toggle="modal"> 
-                        <div class="caption">
-                            <div class="caption-content">
-                                <h3><i class="fa fa-search-plus fa-3x"></i> '.apply_filters('the_title',$post->post_title).'</h3>
-                            </div>
-                        </div>';						
-		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'homepage-thumb');
-		   $url = $thumb['0'];
-		   
-		   
-		   
-		   $thumb_url = wp_get_attachment_url('full', true);
-		   
-		   
-		   $response.='<img src="'.$url.'" class="img-responsive" alt="" />
-                    </a>
-                </div>';
-
-        }
-		
-        echo $response;
-        die(1);
-    }
-
 
 add_action ( 'wp_ajax_nopriv_load-services', 'services_ajax_content' );
 add_action ( 'wp_ajax_load-services', 'services_ajax_content' );
@@ -184,21 +148,20 @@ function single_ajax_content () {
 		   $response='';
            $post = get_post($post_id);
            $content = apply_filters( 'the_content', $post->post_content );
-	       $response.='<h2> '.apply_filters('the_title',$post->post_title).'</h2>';						
-		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'homepage-thumb');
-		   $url = $thumb['0'];
-		   
-		   
-		   
+           $response.'<div class="col-md-8 col-md-offset-2">';
+	       $response.='<h1> '.apply_filters('the_title',$post->post_title).'</h1>';	
+	       $response.='<hr />';					
+		   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
+		   $url = $thumb['0'];		   
 		   $thumb_url = wp_get_attachment_url('full', true);
-		   
-		   
-		   $response.='<img src="'.$url.'" class="img-responsive" alt="" />';
+		   $response.='<img src="'.$url.'" class="img-responsive" alt="'.apply_filters('the_title',$post->post_title).'" />';
+		  
 	       $response.=apply_filters('the_content',$post->post_content);						
-		
-        echo $response;
-        die(1);
-    }
+		   $response.='<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>';
+		   $response.='</div>';
+      echo $response;
+      die(1);
+}
 
 
 

@@ -1,3 +1,5 @@
+var $myModal = jQuery('#item');
+
 jQuery(document).ready(function($) {
 
         //jQuery(".ajax-click").click(function() {
@@ -21,27 +23,21 @@ jQuery( ".portfolio-item a" ).click(function() {
 
 
 jQuery("body").on('click','.portfolio-item',function(){
-    alert(jQuery(this));
-});
-
-
     
-var $myModal = jQuery('#item');
-
-$myModal.on('shown.bs.modal', function (e) {
-	//var modal = jQuery(e.delegateTarget).data('modal').options;
-
- 	
- 	//alert(modal);
-    var post_id = 24;
+    var post_id = jQuery(this).data("post-id");
     var ajaxURL = SingleAjax.ajaxurl
+	
+	//alert(jQuery(this).data("post-id"));
+	//console.log(SingleAjax.ajaxurl);	
+
     $.ajax({
-    type: 'POST',
-    url: ajaxURL,
-    data: {"action": "load-single","post_id": post_id},
-    success: function(response) {
-        jQuery("#modal-content").html(response);
-    return false; 
+    	type: 'POST',
+		url: ajaxURL,
+		data: {"action": "load-single","post_id": post_id},
+		success: function(response) {
+        	jQuery("#item .modal-body").html(response);
+			jQuery("#item").modal("show");
+			return false; 
         }
     }); 
 });
