@@ -33,7 +33,7 @@ $myModal.on('shown.bs.modal', function (e) {
 
  	
  	//alert(modal);
-    var post_id = 2;
+    var post_id = 24;
     var ajaxURL = SingleAjax.ajaxurl
     $.ajax({
     type: 'POST',
