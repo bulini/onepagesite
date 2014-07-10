@@ -114,8 +114,8 @@ add_action ( 'wp_ajax_load-services', 'services_ajax_content' );
         foreach($posts as $post) {
            $i++;
            $content = apply_filters( 'the_content', $post->post_content );
-	       $response.='<div class="col-sm-4 portfolio-item">
-                    	<a href="#portfolioModal'.$i.'" class="portfolio-link" data-toggle="modal"> 
+	       $response.='<div class="col-sm-4 portfolio-item" data-target="#item" data-post-id="'.$post->ID.'">
+                    	<a href="#item" class="portfolio-link"> 
                         <div class="caption">
                             <div class="caption-content">
                                 <h3><i class="fa fa-search-plus fa-3x"></i> '.apply_filters('the_title',$post->post_title).'</h3>

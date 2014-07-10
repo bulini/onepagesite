@@ -42,6 +42,32 @@ jQuery("body").on('click','.portfolio-item',function(){
     }); 
 });
 
+
+// Attach a submit handler to the form
+jQuery( "#contactform" ).submit(function( event ) {
+ 
+  // Stop form from submitting normally
+  event.preventDefault();
+ 
+  // Get some values from elements on the page:
+  var $form = jQuery( this ),
+    name = $form.find( "input[name='name']" ).val(),
+    email = $form.find( "input[name='email']" ).val(),
+    message = $form.find( "textarea[name='message']" ).val(),
+	url= ajaxURL;
+    //url = $form.attr( "action" );
+ 
+  // Send the data using post
+  var posting = $.post( url, { name:name, email:email, message:message } );
+  
+  // Put the results in a div
+  posting.done(function( data ) {
+    var content = '<h2>Request sent succesfully</h2>';
+    //var content = jQuery( data ).find( "#content" );
+    jQuery( "#contactform" ).empty().append( content );
+  });
+});
+
 }); 
 
 

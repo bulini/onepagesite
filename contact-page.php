@@ -13,7 +13,7 @@ Template Name: Contact
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form role="form">
+                    <form role="form" id="contactform">
                         <div class="row">
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label for="name">Name</label>
@@ -29,7 +29,7 @@ Template Name: Contact
                         <div class="row">
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label for="message">Message</label>
-                                <textarea placeholder="Message" class="form-control" rows="5"></textarea>
+                                <textarea placeholder="Message" class="form-control" rows="5" name="message"></textarea>
                             </div>
                         </div>
                         <br>
