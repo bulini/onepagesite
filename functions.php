@@ -41,7 +41,7 @@ add_action ( 'wp_ajax_load-content', 'my_load_ajax_content' );
            $i++;
            $content = apply_filters( 'the_content', $post->post_content );
 	       $response.='<div class="col-sm-4 portfolio-item">
-                    	<a href="#item" data-toggle="modal" class="portfolio-link open-modal" data-target="#item" data-post-id="'.$post->ID.'"> 
+	       <a href="#item" data-toggle="modal" class="portfolio-link" data-target="#item" data-post-id="'.$post->ID.'"> 
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i> '.apply_filters('the_title',$post->post_title).'

@@ -13,8 +13,26 @@ jQuery(document).ready(function($) {
     return false;
         }
     }); 
-jQuery('#item').on('shown.bs.modal', function (e) {
-    alert(e.relatedTarget);    
+    
+jQuery( ".portfolio-item a" ).click(function() {
+	alert('cristo');
+	jQuery( this ).fadeOut();
+});    
+
+
+jQuery("body").on('click','.portfolio-item',function(){
+    alert(jQuery(this));
+});
+
+
+    
+var $myModal = jQuery('#item');
+
+$myModal.on('shown.bs.modal', function (e) {
+	//var modal = jQuery(e.delegateTarget).data('modal').options;
+
+ 	
+ 	//alert(modal);
     var post_id = 2;
     var ajaxURL = SingleAjax.ajaxurl
     $.ajax({
@@ -23,7 +41,7 @@ jQuery('#item').on('shown.bs.modal', function (e) {
     data: {"action": "load-single","post_id": post_id},
     success: function(response) {
         jQuery("#modal-content").html(response);
- 
+    return false; 
         }
     }); 
 });
