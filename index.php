@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <?php $options=load_theme_options(); ?>
 
+<!-- start section -->
     <header>
     <section class="intro" id="intro">
         <div class="intro-body">
@@ -21,40 +22,25 @@
     </section>
     </header>
 
-
-
-
-
-
-
-
+<!-- end start section -->
 
 	<?php 
 
-		if (($locations = get_nav_menu_locations()) && $locations['primary_navi'] ) {
-		        $menu = wp_get_nav_menu_object( $locations['primary_navi'] );
-		        $menu_items = wp_get_nav_menu_items($menu->term_id);
-		        $pageID = array();
-		        foreach($menu_items as $item) {
-		            if($item->object == 'page')
-		                $pageID[] = $item->object_id;
-		        }
-		    query_posts( array( 'post_type' => 'page','post__in' => $pageID, 'posts_per_page' => count($pageID), 'orderby' => 'post__in' ) );
-		}
+		//function to retrieve all posts in menu
+		get_menu_pages();
+		
 		while(have_posts() ) : the_post(); 
-				
-			  $bg = get_post_meta($id, "_cmb_test_image", true); 
-			  $heading = get_post_meta($id, "_cmb_heading", true); 
-			  $subheading = get_post_meta($id, "_cmb_sub-heading", true); 
-	   ?>
 
-    
-		<?php 
-			if(get_page_template_slug( $post->ID)!=''):
+						
+		  $bg = get_post_meta($id, "_cmb_test_image", true); 
+		  $heading = get_post_meta($id, "_cmb_heading", true); 
+		  $subheading = get_post_meta($id, "_cmb_sub-heading", true);  
+		  
+		  if(get_page_template_slug( $post->ID)!=''):
 				include(get_page_template_slug( $post->ID)); 
-			else: ?>
+		  else: ?>
 			
-			
+	<!-- standard section with no template -->
 			    <section class="success" id="<?php echo $post->post_title; ?>">
 			        <div class="container">
 			            <div class="row">
@@ -68,29 +54,22 @@
 			                    <?php the_content(); ?>
 			                </div>
 			                <div class="col-lg-4">
-			                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+			                    <p>What to do</p>
 			                </div>
 			                <div class="col-lg-8 col-lg-offset-2 text-center">
 			                    <a href="#" class="btn btn-lg btn-outline">
-			                        <i class="fa fa-download"></i> Download Theme
+			                        <i class="fa fa-download"></i> view
 			                    </a>
 			                </div>
 			            </div>
 			        </div>
-    </section>
+				</section>
+	<!-- end standard section -->		
 			
-			
-		<?php endif; wp_reset_postdata(); ?>
-
-    
+		<?php endif; wp_reset_postdata(); ?>    
 	<?php  endwhile; ?>
 	
-
-
-
-
-
-    <footer class="text-center">
+	<footer class="text-center">
         <div class="footer-above">
             <div class="container">
                 <div class="row">
@@ -116,7 +95,7 @@
                     </div>
                     <div class="footer-col col-md-4">
                         <h3><?php bloginfo('name'); ?></h3>
-                        <p>Rent a car with us <a href="http://www.massimolimo.com">Limousine services</a>.</p>
+                        <p>Massimo Serafini <a href="http://www.massimolimo.com">Limousine services</a>.</p>
                     </div>
                 </div>
             </div>

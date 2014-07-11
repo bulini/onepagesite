@@ -16,14 +16,14 @@ Template Name: Contact
                     <form role="form" id="contactform">
                         <div class="row">
                             <div class="form-group col-xs-12 floating-label-form-group">
-                                <label for="name">Name</label>
+                                <label for="firstname">Name</label>
                                 <input class="form-control" type="text" name="name" placeholder="Name">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label for="email">Email Address</label>
-                                <input class="form-control" type="email" name="email" placeholder="Email Address">
+                                <input class="form-control" type="text" name="email" placeholder="Email Address">
                             </div>
                         </div>
                         <div class="row">
@@ -35,7 +35,7 @@ Template Name: Contact
                         <br>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-lg btn-success">Send</button>
+                                <button type="submit" class="btn btn-lg btn-success" id="sendform">Send</button>
                             </div>
                         </div>
                     </form>
