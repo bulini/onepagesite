@@ -26,3 +26,52 @@ jQuery('body').scrollspy({
 })
 
 
+// validation stuff
+jQuery(document).ready(function() {
+
+
+    jQuery('#contactform').bootstrapValidator({
+        live: 'enabled',
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        submitButtons: 'button[type="submit"]',
+        fields: {
+            name: {
+                validators: {
+                    notEmpty: {
+                        message: 'The first name is required and cannot be empty'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email is required and cannot be empty'
+                    },
+                    emailAddress: {
+                        message: 'The input is not a valid email address'
+                    }
+                }
+            },
+
+            message: {
+                validators: {
+                    notEmpty: {
+                        message: 'The Message is required'
+                    }
+                }
+            }
+
+        }
+    });
+
+    // Validate the form manually
+
+});
+
+
+

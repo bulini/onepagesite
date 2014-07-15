@@ -214,6 +214,32 @@ function myplugin_meta_box_callback( $post ) {
 
 
 /**
+ * get menu items and generate loop.
+ *
+ * @param stocazzo.
+ */
+
+function get_menu_pages(){
+	if (($locations = get_nav_menu_locations()) && $locations['primary_navi'] ) {
+	        $menu = wp_get_nav_menu_object( $locations['primary_navi'] );
+	        $menu_items = wp_get_nav_menu_items($menu->term_id);
+	        $pageID = array();
+	        foreach($menu_items as $item) {
+	            if($item->object == 'page')
+	                $pageID[] = $item->object_id;
+	        }
+	  return  query_posts( array( 'post_type' => 'page','post__in' => $pageID, 'posts_per_page' => count($pageID), 'orderby' => 'post__in' ) );
+	}	
+}
+
+
+
+
+
+
+
+
+/**
  * When the post is saved, saves our custom data.
  *
  * @param int $post_id The ID of the post being saved.

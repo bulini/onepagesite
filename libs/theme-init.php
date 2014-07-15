@@ -328,7 +328,7 @@ if ( !function_exists('fb_AddThumbColumn') && function_exists('add_theme_support
 		wp_localize_script( 'single-ajax-request', 'SingleAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 		wp_enqueue_style( 'bootstrap', get_template_directory_uri().'/css/bootstrap.min.css');
-
+		wp_enqueue_style( 'bootstrap-validator', get_template_directory_uri().'/css/bootstrapValidator.css');
 		wp_enqueue_style( 'theme', get_template_directory_uri().'/css/freelancer.css');
 
 		wp_enqueue_style( 'font-awesome', get_template_directory_uri().'/font-awesome/css/font-awesome.min.css' );
@@ -348,6 +348,8 @@ if ( !function_exists('fb_AddThumbColumn') && function_exists('add_theme_support
 		wp_enqueue_script( 'classie', get_template_directory_uri() . '/assets/js/classie.js', array(), '1.0.0', true );
 		wp_enqueue_script( 'cbpanimate', get_template_directory_uri() . '/assets/js/cbpAnimatedHeader.js', array(), '1.0.0', true );
 		//wp_enqueue_script( 'blur', get_template_directory_uri() . '/assets/js/blur.min.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'bootstrap-validator', get_template_directory_uri() . '/assets/js/bootstrapValidator.js', array(), '1.0.0', true );
+
 		wp_enqueue_script( 'freelancer', get_template_directory_uri() . '/assets/js/freelancer.js', array(), '1.0.0', true );
 
 
