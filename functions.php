@@ -164,7 +164,8 @@ function single_ajax_content () {
 }
 
 
-
+add_action ( 'wp_ajax_nopriv_send-form', 'send_form' );
+add_action ( 'wp_ajax_send-form', 'send_form' );
 
 
 
